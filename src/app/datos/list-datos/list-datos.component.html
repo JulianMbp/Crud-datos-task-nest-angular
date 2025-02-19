@@ -1,0 +1,51 @@
+<div class="flex flex-col justify-between gap-2">
+    <div class="flex justify-around items-center">
+        <h1 class="text-6xl font-bold text-center justify-center">Listado de usuarios</h1>    
+        <div class="flex justify-center items-center gap-2">
+    
+        <button class="m-10 bg-blue-500 text-white p-4 rounded-md" routerLink="/datos/nuevo">Agregar usuario</button>
+        <button class="bg-gray-500 text-white p-4 h-14 w-48 justify-center items-center text-center rounded-md" (click)="mostrarContrasena = !mostrarContrasena">
+            {{ mostrarContrasena ? 'Ocultar' : 'Ver' }} contraseñas
+        </button>
+        </div>
+    </div>
+    <div class="mx-32 grid grid-cols-3 border-2 border-gray-300 gap-1 rounded-md p-2" *ngFor="let dato of datos">
+<!--         <div class="border-2 border-blue-400 rounded-md p-2 flex gap-1">
+            <h2>id :</h2>
+            <p class="text-blue-500">{{dato._id}}</p>    
+        </div> -->
+        <div class="border-2 border-blue-400 rounded-md p-2 flex gap-2 justify-between">
+            <div class="flex gap-2">
+                <h2>Nombre :</h2>
+                    <p class="text-blue-500">{{dato.name}}</p>
+                </div>
+        </div>
+        <div class="border-2 border-blue-400 rounded-md p-2 flex gap-2 justify-between">
+            <div class="flex gap-2">
+                <h2>Apellido :</h2>
+                <p class="text-blue-500">{{dato.lastName}}</p>
+            </div>
+
+        </div>
+        <div class="border-2 border-blue-400 rounded-md p-2 flex gap-2 justify-between">
+            <div class="flex gap-2">
+                <h2>Email :</h2>
+                <p class="text-blue-500">{{dato.email}}</p>
+            </div>
+
+        </div>
+        <div class="border-2 border-blue-400 rounded-md p-2 flex gap-2 justify-between">
+            <div class="flex gap-2">
+                <h2>Password :</h2>
+                <p class="text-blue-500" [ngClass]="{'hidden': !mostrarContrasena}">{{dato.password}}</p>  
+                <p class="opacity-50" *ngIf="!mostrarContrasena">************</p>
+            </div>
+
+        </div>
+        <div class="flex gap-2 justify-end col-span-2">
+            <button class="bg-blue-500 text-white p-2 rounded-md" [routerLink]="['/datos/editar', dato.id]">Editar</button>
+            <button class="bg-red-500 text-white p-2 rounded-md" (click)="eliminarUsuario(dato.id.toString())">Eliminar</button>
+        </div>
+    </div>
+
+</div>

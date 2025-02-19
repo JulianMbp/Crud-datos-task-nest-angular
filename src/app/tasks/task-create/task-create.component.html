@@ -1,0 +1,36 @@
+<div class="flex flex-col items-center justify-center p-8 gap-4">
+    <h1 class="text-4xl font-bold text-blue-500">Crear Nueva Tarea</h1>
+    
+    <form [formGroup]="taskForm" (ngSubmit)="createTask()" class="w-full max-w-2xl space-y-4">
+        <div class="flex flex-col gap-2">
+            <div class="border-2 border-gray-300 rounded-md p-2">
+                <label class="text-xl">Título:</label>
+                <input class="w-full p-2 opacity-50" type="text" formControlName="title" placeholder="Título de la tarea">
+            </div>
+
+            <div class="border-2 border-gray-300 rounded-md p-2">
+                <label class="text-xl">Descripción:</label>
+                <textarea class="w-full p-2 opacity-50" formControlName="description" placeholder="Descripción de la tarea"></textarea>
+            </div>
+
+            <div class="border-2 border-gray-300 rounded-md p-2">
+                <label class="text-xl">Usuario Asignado:</label>
+                <select class="w-full p-2 opacity-50" formControlName="productId">
+                    <option value="">Seleccione un usuario</option>
+                    <option *ngFor="let user of users" [value]="user.id">
+                        {{user.name}} {{user.lastName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-4">
+            <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-md">
+                Crear Tarea
+            </button>
+            <a routerLink="/task" class="bg-red-500 text-white px-6 py-2 rounded-md">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="flex flex-col items-center justify-center h-screen w-screen gap-2">
+    <h1 class="text-4xl text-center justify-center font-bold text-blue-500 mb-10">Crear usuario</h1>
+    <form [formGroup]="datosForm" (ngSubmit)="crearDatos(datosForm.value)" class="flex flex-col gap-2">
+        <div class="flex border-2 border-gray-300 rounded-md gap-2">
+            <div class="text-xl p-2">Nombre: </div>
+            <input class="opacity-50 text-lg p-2" type="text" name="name" placeholder="Nombre" formControlName="name">
+        </div>
+        <div class="flex border-2 border-gray-300 rounded-md gap-2">
+            <div class="text-xl p-2">Apellido: </div>
+            <input class="opacity-50 text-lg p-2" type="text" name="lastName" placeholder="Apellido" formControlName="lastName">
+        </div>
+        <div class="flex border-2 border-gray-300 rounded-md gap-2">
+            <div class="text-xl p-2">Email: </div>
+            <input class="opacity-50 text-lg p-2" type="email" name="email" placeholder="Email" formControlName="email">
+        </div>
+        <div class="flex border-2 border-gray-300 rounded-md gap-2">
+            <div class="text-xl p-2">Contraseña: </div>
+            <input class="opacity-50 text-lg p-2" type="password" name="password" placeholder="Contraseña" formControlName="password">
+        </div>
+        <div class="flex gap-2 justify-center items-center">
+            <button class=" bg-blue-500 text-white text-2xl p-2 rounded-md"type="submit">Crear</button>
+            <a class=" bg-red-500 text-white text-2xl p-2 rounded-md" type="button" href="/datos">Cancelar</a>
+        </div>
+    </form>
+</div>
